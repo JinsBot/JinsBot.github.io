@@ -1,0 +1,14 @@
+/unity/[Ll]ibrary/
+/unity/[Tt]emp/
+/unity/[Ll]ogs/
+/unity/[Oo]bj/
+/unity/[Bb]uild*/
+/unity/[Uu]ser[Ss]ettings/
+/unity/.vs/
+*.sln
+*.csproj
+__pycache__/
+.venv/
+*.task
+.vscode/
+.DS_Store
