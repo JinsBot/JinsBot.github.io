@@ -133,3 +133,31 @@
 .work-row h3{max-width:none;text-wrap:wrap}
 .technical-detail{border-bottom:0;background:transparent}
 .technical-detail summary{padding:0}
+
+/* Profile and publication cue, without changing the project-first order. */
+.portfolio-intro.has-portrait{grid-template-columns:132px 320px minmax(0,1fr);gap:32px;padding:40px 0 32px}
+.profile-portrait{display:block;width:132px;height:auto;aspect-ratio:423/565;object-fit:contain;border-radius:4px}
+.intro-identity h1{line-height:1.2;margin-bottom:13px}
+.intro-identity .identity{line-height:1.7}
+.intro-summary .intro-publication{margin-top:17px;font-size:14px;line-height:1.6}
+.intro-publication a{text-decoration:none}
+.intro-publication a:hover{text-decoration:underline}
+@media(min-width:761px) and (max-width:1050px){
+ .portfolio-intro.has-portrait{grid-template-columns:112px minmax(225px,.92fr) minmax(0,1.2fr);gap:25px}
+ .profile-portrait{width:112px}
+ .intro-identity h1{font-size:36px}
+}
+@media(max-width:760px){
+ .portfolio-intro.has-portrait{grid-template-columns:108px minmax(0,1fr);gap:24px 22px;padding:32px 0}
+ .profile-portrait{width:108px;align-self:start;margin-top:5px}
+ .intro-identity h1{font-size:32px;letter-spacing:-.5px;margin-bottom:11px}
+ .intro-identity .identity{font-size:13px}
+ .intro-summary{grid-column:1 / -1}
+ .intro-summary .interest-lines{margin-top:17px}
+}
+@media(max-width:360px){
+ .portfolio-intro.has-portrait{grid-template-columns:88px minmax(0,1fr);column-gap:17px}
+ .profile-portrait{width:88px}
+ .intro-identity h1{font-size:28px}
+ .intro-identity .work-links{column-gap:13px}
+}
