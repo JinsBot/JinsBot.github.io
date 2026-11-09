@@ -12,3 +12,36 @@
 @media(max-width:600px){.project-summary{display:contents}.project-row{row-gap:12px}.project-cover{grid-column:1;grid-row:1}.project-overview{grid-column:2;grid-row:1}.project-row .description,.project-row .inline-links{grid-column:1/-1;margin-top:0}}
 .bio .direction{margin-top:12px;font-size:15px;line-height:1.75}.list-heading{font-size:15px;font-weight:600;color:var(--muted);margin:4px 0 14px;padding-top:22px;border-top:1px solid var(--line)}.project-list{list-style:none;margin:0;padding:0}.project-list li{display:grid;grid-template-columns:1fr;gap:4px;padding:16px 0;border-top:1px solid var(--line)}.project-list li:first-child{border-top:0;padding-top:0}.project-list h4{margin:0;font-size:16px;line-height:1.45;font-weight:600}.project-list .project-date{margin-top:3px}.project-list .description{margin-top:4px}.project-list .inline-links{margin-top:6px}.history .detail{color:var(--ink);line-height:1.6;margin-top:6px;max-width:80ch}.skills{list-style:none;margin:0;padding:0}.skills li{display:grid;grid-template-columns:165px 1fr;gap:25px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}.skills li:first-child{border-top:0;padding-top:0}.skills strong{font-weight:600}.skills span{color:var(--muted)}
 @media(max-width:600px){.bio .direction{font-size:14px}.project-list .project-overview{grid-column:auto;grid-row:auto}.project-list h4{font-size:15px}.history .detail{font-size:13px}.skills li{grid-template-columns:1fr;gap:3px;font-size:13px}}
+
+
+/* Editorial reading units. A phrase may wrap internally on a narrow screen. */
+.semantic-copy .phrase{display:inline-block;max-inline-size:100%;vertical-align:top;text-wrap:pretty}
+h1,h2,h3,h4,figcaption{word-break:normal;overflow-wrap:normal;text-wrap:balance}
+p,td,th,li,.fact-list span{word-break:normal;text-wrap:pretty}
+.bio>p{max-inline-size:64ch;line-height:1.7}
+.section-body>p{max-inline-size:70ch;line-height:1.75}
+.project-heading .lead{max-inline-size:60ch}
+.description{max-inline-size:68ch;line-height:1.7}
+.project-date{max-inline-size:76ch;line-height:1.65}
+.publication h3{max-inline-size:68ch;line-height:1.5}
+.project-heading h1{max-inline-size:25ch}
+.project-heading h1 .phrase{max-inline-size:100%}
+.history .detail{max-inline-size:70ch}
+.note,figcaption{max-inline-size:85ch;line-height:1.6}
+.hero-image img{object-fit:contain}
+@media(max-width:600px){
+ .semantic-copy .phrase{max-inline-size:100%;text-wrap:pretty}
+ .project-row{grid-template-columns:100px minmax(0,1fr);column-gap:18px}
+ .project-summary>.description,.project-summary>.inline-links{grid-column:1/-1}
+ .project-heading h1{max-inline-size:22ch}
+ .section-body>p{line-height:1.75}
+}
+
+.semantic-copy>.thought{display:block}
+.semantic-copy>.thought+.thought{margin-block-start:.35em}
+.semantic-copy .thought>.phrase{display:inline-block;margin:0}
+.bio .semantic-copy>.thought+.thought{margin-block-start:.65em}
+.fact-list li>span,.debug-list p{max-inline-size:62ch}
+.interests .thought{display:inline}
+
+.interests .interest-line{display:block}
