@@ -134,30 +134,66 @@
 .technical-detail{border-bottom:0;background:transparent}
 .technical-detail summary{padding:0}
 
-/* Profile and publication cue, without changing the project-first order. */
-.portfolio-intro.has-portrait{grid-template-columns:132px 320px minmax(0,1fr);gap:32px;padding:40px 0 32px}
-.profile-portrait{display:block;width:132px;height:auto;aspect-ratio:423/565;object-fit:contain;border-radius:4px}
-.intro-identity h1{line-height:1.2;margin-bottom:13px}
-.intro-identity .identity{line-height:1.7}
-.intro-summary .intro-publication{margin-top:17px;font-size:14px;line-height:1.6}
-.intro-publication a{text-decoration:none}
-.intro-publication a:hover{text-decoration:underline}
-@media(min-width:761px) and (max-width:1050px){
- .portfolio-intro.has-portrait{grid-template-columns:112px minmax(225px,.92fr) minmax(0,1.2fr);gap:25px}
- .profile-portrait{width:112px}
- .intro-identity h1{font-size:36px}
+/* A continuous introduction and a compact homepage; details live in Projects. */
+.home-intro{display:grid;grid-template-columns:minmax(0,1fr) 164px;grid-template-areas:"heading portrait" "summary portrait";column-gap:52px;row-gap:13px;align-items:center;padding:36px 0 32px}
+.home-intro .intro-heading{grid-area:heading}
+.home-intro h1{font-size:42px;line-height:1.15;letter-spacing:-.7px;margin:0 0 10px}
+.home-intro .identity{font-size:13px;line-height:1.75;margin:0}
+.home-intro .intro-summary{grid-area:summary}
+.home-intro .profile-portrait{grid-area:portrait;display:block;width:164px;height:164px;object-fit:cover;object-position:50% 0%;border-radius:50%;align-self:center}
+.home-intro .intro-lead{font-size:16px;line-height:1.7;margin:0}
+.home-intro .reading-thought+.reading-thought{margin:0}
+.home-intro .intro-interests{font-size:13px;line-height:1.8;color:#62707b;margin:12px 0 0}
+.home-intro .work-links{margin-top:12px}
+.portfolio-home .portfolio-section{border-top:0;padding:25px 0 27px}
+.portfolio-home .portfolio-section>h2,.section-heading h2{font-size:24px;margin:0 0 25px}
+.portfolio-home #publications{border-top:1px solid #e7e8e7;padding-top:31px}
+.home-projects .work-thumbnail img,.project-list .work-thumbnail img{width:auto;height:auto;max-width:210px;max-height:145px;border-radius:10px;background:transparent}
+.home-projects .work-row{margin-bottom:30px}
+.home-projects .work-row:last-of-type{margin-bottom:0}
+.projects-more{font-size:14px;margin:22px 0 0 243px}
+.projects-more a{text-decoration:none}
+.projects-more a:hover{text-decoration:underline}
+.section-heading{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:15px}
+.section-heading h2{margin:0}
+.status-note{font-size:13px;color:#62707b;margin:0}
+.patent-list{list-style:none;margin:0;padding:0}
+.patent-list li{display:flex;align-items:baseline;justify-content:flex-start;gap:10px 14px;margin-top:10px;line-height:1.6}
+.patent-title{font-size:15px}
+.patent-meta{display:flex;gap:20px;font-size:13px;color:#62707b;flex-shrink:0}
+.patent-number,.patent-meta time{white-space:nowrap}
+.index-heading{padding:34px 0 30px}
+.index-heading h1{font-size:39px;line-height:1.2;margin:20px 0 5px}
+.project-list{padding-bottom:34px}
+.project-index .work-thumbnail img{border-radius:8px}
+.portfolio-header nav [aria-current="page"]{text-decoration:underline;text-underline-offset:5px}
+@media(max-width:1050px) and (min-width:761px){
+ .home-intro{grid-template-columns:minmax(0,1fr) 142px;column-gap:34px}
+ .home-intro .profile-portrait{width:142px;height:142px}
+ .home-intro h1{font-size:39px}
+ .home-intro .identity-separator{display:none}
+ .home-intro .identity>.reading-unit{display:block}
 }
 @media(max-width:760px){
- .portfolio-intro.has-portrait{grid-template-columns:108px minmax(0,1fr);gap:24px 22px;padding:32px 0}
- .profile-portrait{width:108px;align-self:start;margin-top:5px}
- .intro-identity h1{font-size:32px;letter-spacing:-.5px;margin-bottom:11px}
- .intro-identity .identity{font-size:13px}
- .intro-summary{grid-column:1 / -1}
- .intro-summary .interest-lines{margin-top:17px}
+ .home-intro{grid-template-columns:minmax(0,1fr) 100px;grid-template-areas:"heading portrait" "summary summary";column-gap:20px;row-gap:22px;padding:30px 0 25px}
+ .home-intro .profile-portrait{width:100px;height:100px;align-self:start;margin-top:2px}
+ .home-intro h1{font-size:34px}
+ .home-intro .identity-separator{display:none}
+ .home-intro .identity>.reading-unit{display:block}
+ .home-intro .intro-interests{font-size:13px}
+ .home-intro .intro-interests>.reading-unit{display:block}
+ .home-intro .interest-separator{display:none}
+ .home-projects .work-thumbnail img,.project-list .work-thumbnail img{max-width:125px;max-height:100px}
+ .projects-more{margin-left:143px}
+ .patent-list li{flex-direction:column;gap:2px;margin-top:14px}
+ .patent-meta{gap:20px;font-size:12px}
+ .section-heading{gap:4px 13px}
+ .section-heading h2{width:100%}
 }
-@media(max-width:360px){
- .portfolio-intro.has-portrait{grid-template-columns:88px minmax(0,1fr);column-gap:17px}
- .profile-portrait{width:88px}
- .intro-identity h1{font-size:28px}
- .intro-identity .work-links{column-gap:13px}
+@media(max-width:400px){
+ .home-projects .work-thumbnail img,.project-list .work-thumbnail img{max-width:180px;max-height:120px}
+ .projects-more{margin-left:0}
+ .home-intro{grid-template-columns:minmax(0,1fr) 90px;column-gap:17px}
+ .home-intro .profile-portrait{width:90px;height:90px}
+ .home-intro h1{font-size:30px}
 }
