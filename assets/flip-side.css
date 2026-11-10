@@ -1,0 +1,51 @@
+/* FLIP SIDE: contribution scope and original gameplay images. */
+.flip-detail .work-lead{max-width:58ch}
+.flip-detail .game-description{margin-top:14px;font-size:16px;line-height:1.7}
+.flip-battle-view{aspect-ratio:1920/995;overflow:hidden;position:relative}
+.flip-battle-view img{position:absolute;width:100%;height:auto;top:-3.52%;left:0}
+.flip-detail .work-hero{max-width:1040px;margin:0 0 36px}
+.flip-detail .contribution-intro{font-size:14px;color:#62707b;margin:-11px 0 28px}
+.flip-contributions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.flip-contributions article{min-width:0;scroll-margin-top:30px}
+.flip-contributions h3{font-size:21px;margin-bottom:17px}
+.contribution-visual{height:173px;display:flex;align-items:center;justify-content:center}
+.flip-contributions figcaption{margin-top:8px;min-height:21px}
+.coin-diagram{display:grid;grid-template-columns:1fr 74px 1fr;align-items:center;width:100%;gap:5px}
+.coin-location{padding:14px 7px;background:#f2f2ef;text-align:center;font-weight:600;font-size:15px}
+.coin-arrows{display:flex;flex-direction:column;gap:8px;text-align:center;font-size:12px;color:#9b4225}
+.input-overview{flex-direction:column;gap:24px}
+.camera-flow{font-size:15px;font-weight:600;text-align:center}
+.ui-assets{gap:20px;align-items:center}
+.frame-example{flex:0 0 95px;text-align:center;font-size:12px;color:#62707b}
+.frame-example img{width:95px;height:auto;margin:0 auto 7px}
+.cursor-examples{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-width:0}
+.cursor-examples>div{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12px;color:#62707b}
+.cursor-examples img{width:40px;height:40px;object-fit:contain}
+.boss-sequence-view{position:relative;width:100%;aspect-ratio:1152/600;overflow:hidden}
+.boss-sequence-view img{position:absolute;width:166.666667%;max-width:none;height:auto;left:-32.986111%;top:-28.333333%}
+.contribution-list{padding:0 0 0 18px;margin:22px 0 0;font-size:15px;line-height:1.7}
+.contribution-list li+li{margin-top:11px}
+.scope-note{margin-top:14px;font-size:12px;line-height:1.7;color:#62707b}
+.flip-design-focus{display:flex;flex-wrap:wrap;gap:15px 30px;border-top:1px solid #e2e6e8;margin-top:32px;padding-top:23px;align-items:baseline}
+.flip-design-focus h3{font-size:17px;margin:0}
+.flip-design-focus ul{display:flex;flex-wrap:wrap;gap:7px 27px;padding-left:18px;margin:0;font-size:14px;color:#57616d}
+.flip-detail .integration-note{margin-top:18px;max-width:76ch}
+@media(max-width:1000px) and (min-width:761px){
+ .flip-contributions{gap:22px}
+ .ui-assets{gap:10px}.frame-example{flex-basis:70px}.frame-example img{width:70px}
+ .cursor-examples{gap:5px}.cursor-examples img{width:32px;height:32px}
+ .coin-diagram{grid-template-columns:1fr 58px 1fr;gap:3px}.coin-location{padding:12px 3px;font-size:13px}
+}
+@media(max-width:760px){
+ .flip-contributions{grid-template-columns:1fr;gap:30px}
+ .flip-contributions article+article{border-top:1px solid #e2e6e8;padding-top:28px}
+ .flip-contributions figure{max-width:430px}
+ .contribution-visual{height:auto;min-height:150px}
+ .input-overview{padding:20px 0;min-height:150px}
+ .flip-contributions h3{font-size:21px}
+ .flip-design-focus{gap:12px}.flip-design-focus ul{display:block}.flip-design-focus li+li{margin-top:7px}
+ .flip-detail .work-lead{font-size:19px}
+ .flip-detail .game-description{font-size:15px}
+ .flip-detail .work-heading{padding-bottom:26px}
+ .contribution-list{margin-top:16px}
+}
