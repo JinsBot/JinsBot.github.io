@@ -11,8 +11,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: portfolio-pages
-  cancel-in-progress: false
+  group: portfolio-pages-publish
+  cancel-in-progress: true
 
 jobs:
   deploy:
