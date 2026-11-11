@@ -1,0 +1,40 @@
+/* Original PGI design records. Scoped to this project page. */
+.design-gallery-note{font-size:13px;color:#62707b;line-height:1.7;margin:0 0 23px;max-width:70ch}
+.design-stage+.design-stage{margin-top:30px}
+.design-stage h3{font-size:17px;margin:0 0 13px}
+.design-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.design-grid-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.design-image{position:relative;display:block;border:1px solid #e1e5e9;border-radius:6px;background:#f6f7f7;overflow:hidden;text-decoration:none;cursor:zoom-in}
+.design-image img{width:100%;height:225px;object-fit:contain;padding:8px 8px 29px;box-sizing:border-box}
+.design-enlarge{position:absolute;bottom:5px;right:7px;display:flex;align-items:center;gap:5px;padding:1px 5px;background:rgba(255,255,255,.95);border-radius:3px;color:#235c83;font-size:11px;line-height:1.6}
+.design-image:hover,.design-image:focus-visible{border-color:#8caabd}
+.design-image:hover .design-enlarge,.design-image:focus-visible .design-enlarge{text-decoration:underline;text-underline-offset:2px}
+.design-figure figcaption strong{display:block;font-size:14px;color:#21343f;line-height:1.4;margin-bottom:4px}
+.design-figure figcaption span{display:block;font-size:13px;line-height:1.6}
+.design-grid-pair .design-image img{height:245px}
+.design-viewer{position:fixed;inset:0;margin:auto;width:min(1160px,calc(100% - 40px));max-width:none;max-height:calc(100dvh - 32px);padding:20px 24px;border:1px solid #d7dfe4;border-radius:8px;background:#fff;color:#21343f;overflow:auto;box-shadow:0 15px 60px #0003}
+.design-viewer::backdrop{background:rgba(16,27,35,.78)}
+.design-viewer-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:14px}
+.design-viewer h2{font-size:20px;line-height:1.35;margin:0;text-wrap:balance}
+.design-viewer button,.design-viewer .design-original{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:6px 12px;border:1px solid #cbd7df;border-radius:5px;background:#fff;color:#235c83;font:14px/1.5 Arial,'Segoe UI',sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap}
+.design-viewer button:hover,.design-viewer .design-original:hover{background:#edf4f8}
+.design-viewer-image{width:100%;height:min(65dvh,800px);object-fit:contain;background:#f8f9f9}
+.design-viewer-caption{font-size:14px;line-height:1.6;color:#57616d;margin:12px 0 0;max-width:75ch}
+.design-viewer-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:18px}
+.design-pagination{display:flex;align-items:center;gap:12px}
+.design-count{font-size:13px;color:#62707b;min-width:40px;text-align:center;font-variant-numeric:tabular-nums}
+@media(max-width:760px){
+ .design-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 15px}
+ .design-image img,.design-grid-pair .design-image img{height:195px}
+ .design-viewer{width:calc(100% - 20px);max-height:calc(100dvh - 20px);padding:16px}
+ .design-viewer h2{font-size:18px}
+ .design-viewer-image{height:auto;max-height:58dvh}
+ .design-viewer-bottom{gap:9px;flex-wrap:wrap}
+ .design-pagination{gap:8px}
+}
+@media(max-width:480px){
+ .design-grid{grid-template-columns:1fr;gap:22px}
+ .design-image img,.design-grid-pair .design-image img{height:235px}
+ .design-stage+.design-stage{margin-top:27px}
+ .design-viewer button,.design-viewer .design-original{min-height:44px;padding:6px 9px;font-size:13px}
+}

@@ -7,6 +7,7 @@
 <meta name="description" content="Game interaction, physical input and fingertip feedback. Projects by Jinsoo Kim.">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/portfolio.css?v=bb938e6dde4b">
+<link rel="stylesheet" href="/assets/pgi-gallery.css?v=6c3f59428af6">
 </head>
 <body class="portfolio-v9">
 <a class="skip" href="#main">Skip to content</a><header class="portfolio-header"><div class="portfolio-wrap">
@@ -37,7 +38,61 @@
 <div class="iteration-grid" id="iterations">
 <figure><img src="/assets/pgi-v1.webp" width="489" height="467" alt="V1 · Initial assembly" class="" loading="lazy" decoding="async"><figcaption><strong>V1 · Initial assembly</strong><span>Lever, contact pad, spring and tendon routing.</span></figcaption></figure><figure><img src="/assets/pgi-parts.webp" width="2200" height="2200" alt="V2 · Pad orientation" class="" loading="lazy" decoding="async"><figcaption><strong>V2 · Pad orientation</strong><span>Square shaft and reduced clearance address unwanted rotation.</span></figcaption></figure><figure><img src="/assets/pgi-final.webp" width="1400" height="1400" alt="V3 · Finger support" class="" loading="lazy" decoding="async"><figcaption><strong>V3 · Finger support</strong><span>Extended sides support the finger during pull.</span></figcaption></figure>
 </div>
-<details class="technical-detail"><summary>Design sketch, CAD and hardware notes</summary><div class="detail-content"><section class="article-section"><div class="section-grid"><div class="section-body">
+<details class="technical-detail" id="design-notes"><summary>Design sketch, CAD and hardware notes</summary><div class="detail-content"><div class="design-gallery" aria-label="PGI design and fabrication images">
+<p class="design-gallery-note">Original design records and early fabrication.<br>Sketches show design-stage dimensions; later prototypes are shown above.</p>
+<section class="design-stage"><h3>Design sketches</h3><div class="design-grid"><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/mechanism-sketch.webp" target="_blank" rel="noopener" data-design-image data-title="Tendon routing" data-caption="Early sketch of the spring, pivot and tendon paths." aria-label="Enlarge: Tendon routing">
+<img src="/assets/pgi-design/mechanism-sketch-thumb.webp" width="2646" height="1692" alt="Hand-drawn fingertip mechanism with annotated tendon routes, spring and pivot" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Tendon routing</strong><span>Early sketch of the spring, pivot and tendon paths.</span></figcaption>
+</figure><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/mount-sketch.webp" target="_blank" rel="noopener" data-design-image data-title="Mount and bearing layout" data-caption="Finger dimensions and bearing placement explored during design." aria-label="Enlarge: Mount and bearing layout">
+<img src="/assets/pgi-design/mount-sketch-thumb.webp" width="2517" height="2517" alt="Hand-drawn cross-section showing the finger mount, dimensions and bearings" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Mount and bearing layout</strong><span>Finger dimensions and bearing placement explored during design.</span></figcaption>
+</figure><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/lever-sketch.webp" target="_blank" rel="noopener" data-design-image data-title="Lever dimensions" data-caption="Notes on the spring cavity and shaft clearances." aria-label="Enlarge: Lever dimensions">
+<img src="/assets/pgi-design/lever-sketch-thumb.webp" width="2733" height="1334" alt="Dimensioned lever-arm sketch with a spring cavity and revised measurements" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Lever dimensions</strong><span>Notes on the spring cavity and shaft clearances.</span></figcaption>
+</figure></div></section>
+<section class="design-stage"><h3>CAD components</h3><div class="design-grid"><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/mount-cad.webp" target="_blank" rel="noopener" data-design-image data-title="Finger mount" data-caption="Strap openings and the shaft supporting the lever." aria-label="Enlarge: Finger mount">
+<img src="/assets/pgi-design/mount-cad-thumb.webp" width="377" height="486" alt="CAD view of the finger mount with two strap openings and a cylindrical shaft" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Finger mount</strong><span>Strap openings and the shaft supporting the lever.</span></figcaption>
+</figure><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/lever-cad.webp" target="_blank" rel="noopener" data-design-image data-title="Split lever housing" data-caption="Internal space for the spring and piston shaft." aria-label="Enlarge: Split lever housing">
+<img src="/assets/pgi-design/lever-cad-thumb.webp" width="838" height="449" alt="Split CAD housing showing the internal spring cavity and shaft openings" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Split lever housing</strong><span>Internal space for the spring and piston shaft.</span></figcaption>
+</figure><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/pad-cad.webp" target="_blank" rel="noopener" data-design-image data-title="Contact pad" data-caption="Pad, piston shaft and tendon attachment geometry." aria-label="Enlarge: Contact pad">
+<img src="/assets/pgi-design/pad-cad-thumb.webp" width="726" height="364" alt="CAD view of the contact pad, piston shaft and tendon attachment features" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Contact pad</strong><span>Pad, piston shaft and tendon attachment geometry.</span></figcaption>
+</figure></div></section>
+<section class="design-stage"><h3>Early fabrication and assembly</h3><div class="design-grid design-grid-pair"><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/printed-parts.webp" target="_blank" rel="noopener" data-design-image data-title="Printed parts" data-caption="Early housing with the spring and bearings placed inside." aria-label="Enlarge: Printed parts">
+<img src="/assets/pgi-design/printed-parts-thumb.webp" width="2129" height="2129" alt="Two red printed housing halves with a spring and bearings" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Printed parts</strong><span>Early housing with the spring and bearings placed inside.</span></figcaption>
+</figure><figure class="design-figure">
+<a class="design-image" href="/assets/pgi-design/early-assembly.webp" target="_blank" rel="noopener" data-design-image data-title="Early assembly" data-caption="Pad, lever and tendons connected in the first prototype." aria-label="Enlarge: Early assembly">
+<img src="/assets/pgi-design/early-assembly-thumb.webp" width="654" height="582" alt="Underside of the early assembled fingertip mechanism with connected tendons" loading="lazy" decoding="async">
+<span class="design-enlarge" aria-hidden="true">Enlarge <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></span>
+</a>
+<figcaption><strong>Early assembly</strong><span>Pad, lever and tendons connected in the first prototype.</span></figcaption>
+</figure></div></section>
+</div>
+<section class="article-section"><div class="section-grid"><div class="section-body">
 <p class="semantic-copy"><span class="thought"><span class="phrase">Two servos sit on a wrist strap</span> <span class="phrase">to keep the motors off the fingertip.</span> </span><span class="thought"><span class="phrase">One rotates the pad</span> <span class="phrase">through a pair of tendons;</span> <span class="phrase">the other pulls it toward the finger.</span> </span><span class="thought"><span class="phrase">A spring returns the piston</span> <span class="phrase">as tendon tension decreases.</span></span></p>
 <ul class="component-list">
 <li>
@@ -168,5 +223,6 @@
 </div></div></section></div></details></section><p class="related-work"><a href="/projects/carrot/">Earlier work: Carrot Mart motion controllers →</a></p></main><footer class="portfolio-footer portfolio-wrap"><span>Jinsoo Kim</span><div>
 <a href="mailto:jinsoo0102@gmail.com">Email</a><a href="/downloads/CV_JinsooKim.pdf">CV</a><a href="https://github.com/JinsBot" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.youtube.com/@jinsooBot" target="_blank" rel="noopener noreferrer">YouTube</a>
 </div></footer><script src="/assets/site.js" defer></script><script src="/assets/portfolio.js?v=036aac628d69" defer></script>
+<script src="/assets/pgi-gallery.js?v=82ffa435cf60" defer></script>
 </body>
 </html>
