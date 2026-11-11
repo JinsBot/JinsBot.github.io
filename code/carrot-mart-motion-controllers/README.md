@@ -15,7 +15,7 @@ I proposed a game in which riding a horse and throwing a lasso would have differ
 
 ## What changed during testing
 
-Early steering tests documented unintended input overlap. The preserved firmware also contains guards against keys remaining held. I changed the left controller to use per-axis changes in acceleration, reject cross-axis motion and explicitly release held keys. The right controller uses a separate idle/spin state machine. It looks for an acceleration peak and a drop in angular speed before signaling a throw.
+Early steering tests documented unintended input overlap. The preserved firmware also contains guards against keys remaining held. I changed the left controller to use per-axis changes in acceleration, reject cross-axis motion and explicitly release held keys. The right controller uses a separate idle/spin state machine. After acceleration exceeds the throw threshold, angular speed must fall below 35% of its value at that threshold crossing within 200 ms before a throw is signaled.
 
 ## Build the two sketches
 

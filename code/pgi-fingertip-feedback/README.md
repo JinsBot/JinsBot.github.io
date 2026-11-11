@@ -33,6 +33,6 @@ The firmware builds for `arduino:megaavr:nona4809` with core **1.8.8** and Servo
 
 ## Contribution and scope
 
-Individual project: interaction concept, mechanism design, fabrication, integration requirements and prototype testing by Jinsoo Kim, with AI-assisted software implementation. Completed for major credit through Sangmyung University’s Future Design Program, with support from the Haptics and Virtual Reality Lab at Kyung Hee University.
+Individual project: interaction concept, mechanism design, fabrication, integration requirements and prototype testing by Jinsoo Kim, with AI-assisted software implementation. Completed as a self-directed project for major credit at Sangmyung University, with support from the Haptics and Virtual Reality Lab at Kyung Hee University.
 
 This is a preserved prototype, not calibrated force rendering. The stored control code checks geometric conditions, not measured pad alignment. Hardware and perceptual performance have not been revalidated during this packaging.
