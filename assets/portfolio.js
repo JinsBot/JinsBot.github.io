@@ -30,7 +30,10 @@
   document.querySelectorAll('[data-copy-email]').forEach(button => {
     button.hidden = false;
     const label = button.querySelector('.copy-label');
-    const status = button.parentElement.querySelector('[data-copy-status]');
+    const contact = button.closest('.contact-strip');
+    const status = contact.querySelector('[data-copy-status]');
+    const fallbackAddress = contact.querySelector('[data-copy-fallback]');
+    contact.querySelector('[data-email-fallback]').hidden = true;
     let reset;
     button.addEventListener('click', async () => {
       clearTimeout(reset);
@@ -38,10 +41,12 @@
         await navigator.clipboard.writeText(button.dataset.copyEmail);
         label.textContent = 'Copied';
         status.textContent = 'Email address copied.';
-        reset = setTimeout(() => { label.textContent = 'Copy'; status.textContent = ''; }, 2400);
+        fallbackAddress.hidden = true;
+        reset = setTimeout(() => { label.textContent = 'Email'; status.textContent = ''; }, 2400);
       } catch {
+        fallbackAddress.hidden = false;
         const range = document.createRange();
-        range.selectNodeContents(button.parentElement.querySelector('a'));
+        range.selectNodeContents(fallbackAddress);
         const selection = window.getSelection();
         selection.removeAllRanges();
         selection.addRange(range);
@@ -84,18 +89,50 @@
   if (document.body.classList.contains('portfolio-home')) {
     const links = [...header.querySelectorAll('nav a')];
     const entries = links.map(link => ({link, section: document.querySelector(new URL(link.href).hash)}));
+    const entryForHash = () => entries.find(entry => new URL(entry.link.href).hash === location.hash) || null;
+    // Keep explicit navigation selected, even when the page ends before its
+    // section can reach the top. Resume position tracking on manual scrolling.
+    let navigationTarget = entryForHash();
     let queued = false;
     function updateCurrentSection() {
       queued = false;
       const boundary = header.getBoundingClientRect().height + 70;
-      let active = null;
-      for (const entry of entries) if (entry.section.getBoundingClientRect().top <= boundary) active = entry;
-      if (scrollY > 100 && innerHeight + scrollY >= document.documentElement.scrollHeight - 5) active = entries.at(-1);
+      let active = navigationTarget;
+      if (!active) {
+        for (const entry of entries) if (entry.section.getBoundingClientRect().top <= boundary) active = entry;
+        if (scrollY > 100 && innerHeight + scrollY >= document.documentElement.scrollHeight - 5) active = entries.at(-1);
+      }
       for (const entry of entries) {
         if (entry === active) entry.link.setAttribute('aria-current', 'location');
         else entry.link.removeAttribute('aria-current');
       }
     }
+    for (const entry of entries) {
+      entry.link.addEventListener('click', event => {
+        if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        navigationTarget = entry;
+        updateCurrentSection();
+      });
+    }
+    addEventListener('hashchange', () => {
+      navigationTarget = entryForHash();
+      updateCurrentSection();
+    });
+    function resumePositionTracking() {
+      navigationTarget = null;
+      updateCurrentSection();
+    }
+    addEventListener('wheel', resumePositionTracking, {passive: true});
+    addEventListener('touchmove', resumePositionTracking, {passive: true});
+    addEventListener('pointerdown', event => {
+      if (event.clientX >= document.documentElement.clientWidth) resumePositionTracking();
+    });
+    addEventListener('keydown', event => {
+      if (!['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) return;
+      if (event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+      if (event.key === ' ' && event.target.closest('a, button, [role="button"]')) return;
+      resumePositionTracking();
+    });
     addEventListener('scroll', () => {
       if (!queued) { queued = true; requestAnimationFrame(updateCurrentSection); }
     }, {passive: true});
