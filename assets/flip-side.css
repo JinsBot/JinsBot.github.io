@@ -37,6 +37,7 @@
 }
 .flip-photo-hint {font-size:13px;color:#62707b;margin:-13px 0 22px}
 .work-section .flip-event h3 {font-size:18px;margin:0 0 2px}
+.flip-event-kind {display:inline-block;margin-inline-start:4px;font-size:13px;font-weight:400;color:#62707b}
 .flip-event-date,.flip-event small {display:block;font-size:13px;color:#62707b}
 .flip-event p {margin:12px 0 0;font-size:15px;line-height:1.65}
 .flip-event small {margin-top:5px;font-size:12px}
