@@ -270,7 +270,17 @@ html{scroll-padding-top:calc(var(--site-header-height,72px) + 18px)}
  .work-row .work-links{gap:7px}
  .work-row .work-links a{padding-inline:9px}
 }
+/* Shared feedback for boxed links and buttons. */
+:is(.work-links a,.copy-email,.preview-toggle,.copy-button,.design-viewer button,.design-original){transition:background-color .18s,border-color .18s,transform .2s,box-shadow .2s}
+:is(.work-links a,.copy-email,.preview-toggle,.copy-button,.design-viewer button,.design-original):active{transform:translateY(0) scale(.96)}
+.work-links a>span[aria-hidden="true"]{display:inline-block;transition:transform .2s}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ :is(.work-links a,.copy-email,.preview-toggle,.copy-button,.design-viewer button,.design-original):hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 10px rgb(35 92 131 / 10%)}
+ :is(.work-links a,.copy-email,.preview-toggle,.copy-button,.design-viewer button,.design-original):active:not(:disabled){transform:translateY(0) scale(.96);box-shadow:none}
+ .work-links a:hover>span[aria-hidden="true"]{transform:translateX(2px)}
+}
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
- .work-preview .work-thumbnail img,.work-links a,.copy-email{transition:none}
+ .work-preview .work-thumbnail img,.work-links a>span[aria-hidden="true"],:is(.work-links a,.copy-email,.preview-toggle,.copy-button,.design-viewer button,.design-original){transition:none}
+ :is(.work-links a,.copy-email,.preview-toggle,.copy-button,.design-viewer button,.design-original):active{transform:none}
 }
