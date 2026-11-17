@@ -7,7 +7,7 @@
 <meta name="description" content="UI/UX design, player controls and audiovisual feedback in FLIP SIDE, a turn-based deck-building game.">
 <link rel="stylesheet" href="/assets/site.css">
 <link rel="stylesheet" href="/assets/portfolio.css?v=bb938e6dde4b">
-<link rel="stylesheet" href="/assets/flip-side.css?v=20261118-4">
+<link rel="stylesheet" href="/assets/flip-side.css?v=20261118-5">
 </head>
 <body class="portfolio-v9 flip-detail">
 <a class="skip" href="#main">Skip to content</a><header class="portfolio-header"><div class="portfolio-wrap">
@@ -136,34 +136,32 @@
   </section>
   <section class="work-section" id="exhibitions" aria-labelledby="exhibitions-heading">
     <h2 id="exhibitions-heading">Exhibitions &amp; demos</h2>
-    <p class="flip-photo-hint">Select a photo to enlarge it.</p>
+    <p class="flip-photo-hint"><span class="flip-touch-hint">Tap a photo to enlarge it.</span><span class="flip-hover-hint">Hover to enlarge a photo, or select it to keep it open.</span></p>
     <div class="flip-exhibitions">
       <article class="flip-event">
         <h3>PlayX4</h3>
-        <time datetime="2026-05">May 2026</time>
+        <div class="flip-event-date"><time datetime="2026-05-21">May 21</time>–<time datetime="2026-05-24">24, 2026</time></div>
         <div class="flip-event-photos">
           <a href="/assets/flip-playx4-booth.webp"><img src="/assets/flip-playx4-booth.webp" width="900" height="1200" alt="The FLIP SIDE poster and screens beneath the Sangmyung University booth sign at PlayX4" loading="lazy" decoding="async"></a>
           <a href="/assets/flip-playx4-demo.webp"><img src="/assets/flip-playx4-demo.webp" width="900" height="1200" alt="Two people at the PlayX4 demo station with an early version of the battle screen on the monitor" loading="lazy" decoding="async"></a>
         </div>
-        <p>We showed an early build at Sangmyung University’s Game Design and Development booth.</p>
+        <p>PlayX4 is a South Korean game expo. We showed an early build at Sangmyung University’s Game Design and Development booth.</p>
       </article>
       <article class="flip-event">
-        <h3>Graduation exhibition</h3>
-        <time datetime="2026-11">Nov 2026</time>
+        <h3>Game Design and Development Graduation Exhibition</h3>
+        <time class="flip-event-date" datetime="2026-11-13">Nov 13, 2026</time>
         <div class="flip-event-photos">
           <a href="/assets/flip-graduation-booth.webp"><img src="/assets/flip-graduation-booth.webp" width="900" height="1200" alt="FLIP SIDE demo stations beneath the department’s graduation exhibition banner" loading="lazy" decoding="async"></a>
           <a href="/assets/flip-graduation-demo.webp"><img src="/assets/flip-graduation-demo.webp" width="900" height="1200" alt="A visitor playing FLIP SIDE on a laptop while Jinsoo looks on" loading="lazy" decoding="async"></a>
         </div>
-        <p>Visitors played a later build at our department’s capstone exhibition.</p>
+        <p>Visitors played the final capstone build of FLIP SIDE.</p>
       </article>
       <article class="flip-event">
         <h3>German games industry visit</h3>
-        <time datetime="2026-11-16">Nov 16, 2026</time>
+        <time class="flip-event-date" datetime="2026-11-16">Nov 16, 2026</time>
         <div class="flip-event-photos flip-event-post">
-          <a href="/assets/flip-german-visit.webp?v=post" aria-label="Enlarge Sangmyung University’s full Instagram post about the visit">
-            <img src="/assets/flip-german-visit-demo.webp" width="900" height="598" alt="Jinsoo demonstrating FLIP SIDE to a visitor" loading="lazy" decoding="async">
-            <img class="flip-post-screenshot" src="/assets/flip-german-visit.webp?v=post" width="1124" height="2236" alt="Full university post with its account name and Korean caption" loading="lazy" decoding="async">
-          </a>
+          <a href="/assets/flip-german-visit-demo.webp"><img src="/assets/flip-german-visit-demo.webp" width="900" height="598" alt="Jinsoo demonstrating FLIP SIDE to a visitor" loading="lazy" decoding="async"></a>
+          <a href="/assets/flip-german-visit.webp?v=post" aria-label="Enlarge Sangmyung University’s full Instagram post about the visit"><img class="flip-post-screenshot" src="/assets/flip-german-visit.webp?v=post" width="1124" height="2236" alt="Full university post with its account name and Korean caption" loading="lazy" decoding="async"></a>
         </div>
         <p>We demonstrated FLIP SIDE to the visiting delegation at Sangmyung University.</p>
         <small>Instagram post by Sangmyung University (@sangmyung_univ)</small>
@@ -173,5 +171,11 @@
 </main><footer class="portfolio-footer portfolio-wrap"><span>Jinsoo Kim</span><div>
 <a href="mailto:jinsoo0102@gmail.com">Email</a><a href="/downloads/CV_JinsooKim.pdf">CV</a><a href="https://github.com/JinsBot" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.youtube.com/@jinsooBot" target="_blank" rel="noopener noreferrer">YouTube</a>
 </div></footer><script src="/assets/site.js" defer></script><script src="/assets/portfolio.js?v=036aac628d69" defer></script>
+<div class="flip-photo-preview" hidden aria-hidden="true"><img alt=""></div>
+<dialog class="flip-photo-dialog" aria-label="Enlarged exhibition photo">
+  <button type="button" autofocus>Close ×</button>
+  <img alt="">
+</dialog>
+<script src="/assets/flip-photos.js" defer></script>
 </body>
 </html>
