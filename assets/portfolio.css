@@ -18,6 +18,8 @@
 .work-links{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;margin-top:14px}
 .work-links a{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:4px 11px;min-height:34px;border:1px solid #cfdae2;border-radius:6px;background:#fff;text-decoration:none;transition:background-color .15s,border-color .15s}
 .work-links a:hover,.work-links a:focus-visible{background:#edf4f8;border-color:#8caabd;text-decoration:none}
+.work-links a.project-action{background:#edf4f8;border-color:#b6ccd9}
+.work-links a.project-action:hover,.work-links a.project-action:focus-visible{background:#dfedf5;border-color:#8caabd}
 .portfolio-section{padding:31px 0 35px;border-top:1px solid #e2e6e8}
 .portfolio-section>h2{font-size:25px;margin:0 0 27px}
 .work-row{display:grid;grid-template-columns:210px 1fr;gap:33px;margin-bottom:32px;align-items:center}
@@ -158,9 +160,9 @@
 .section-heading h2{margin:0}
 .status-note{font-size:13px;color:#62707b;margin:0}
 .patent-list{list-style:none;margin:0;padding:0}
-.patent-list li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:4px 16px;margin-top:10px;line-height:1.6}
-.patent-title{font-size:15px}
-.patent-meta{display:flex;gap:20px;font-size:13px;color:#62707b;flex-shrink:0}
+.patent-list li{display:grid;grid-template-columns:minmax(0,300px) 210px max-content;align-items:baseline;gap:4px 20px;margin-top:10px;line-height:1.6}
+.patent-title{font-size:15px;font-weight:600}
+.patent-meta{display:grid;grid-template-columns:140px 1fr;gap:12px;font-size:13px;color:#62707b}
 .patent-number,.patent-meta time{white-space:nowrap}
 .index-heading{padding:34px 0 30px}
 .index-heading h1{font-size:39px;line-height:1.2;margin:20px 0 5px}
@@ -185,8 +187,8 @@
  .home-intro .interest-separator{display:none}
  .home-projects .work-thumbnail img,.project-list .work-thumbnail img{max-width:125px;max-height:100px}
  .projects-more{margin-left:0}
- .patent-list li{flex-direction:column;gap:2px;margin-top:14px}
- .patent-meta{gap:20px;font-size:12px}
+ .patent-list li{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+ .patent-meta{display:flex;gap:20px;font-size:12px}
  .section-heading{gap:4px 13px}
  .section-heading h2{width:100%}
 }
@@ -256,6 +258,15 @@ html{scroll-padding-top:calc(var(--site-header-height,72px) + 18px)}
  .portfolio-header nav{font-size:12px;justify-content:space-between;gap:8px}
  .work-preview{width:210px}
  .work-preview .work-thumbnail{height:145px}
+ .work-row .work-links{gap:7px}
+ .work-row .work-links a{padding-inline:9px}
+}
+/* Keep the primary project lists consistent across phone widths. */
+@media(max-width:600px){
+ .home-projects .work-row,.project-list .work-row{grid-template-columns:minmax(0,1fr);gap:10px}
+ .home-projects .work-row h3,.project-list .work-row h3{font-size:19px}
+ .home-projects .work-preview,.project-list .work-preview{width:210px}
+ .home-projects .work-preview .work-thumbnail,.project-list .work-preview .work-thumbnail{height:145px}
  .work-row .work-links{gap:7px}
  .work-row .work-links a{padding-inline:9px}
 }
