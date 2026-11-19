@@ -7,7 +7,7 @@
   const links = [...row.querySelectorAll('.work-links a')];
   const korean = document.documentElement.lang === 'ko';
   const rule = korean
-    ? '블록을 밀어 ‘프로젝트 보기’를 맞히면 이동해요'
+    ? '블록이 ‘프로젝트 보기’ 버튼에 닿으면 이동해요'
     : 'Push a block onto ‘View project’ to open it';
   const widget=document.createElement('div');
   widget.className='pgi-jenga-widget';
