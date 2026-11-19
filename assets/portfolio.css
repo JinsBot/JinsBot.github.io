@@ -10,14 +10,14 @@
 .portfolio-name{font-size:19px;font-weight:700;color:#21343f!important;text-decoration:none}
 .portfolio-header nav{display:flex;align-items:center;gap:26px;font-size:14px}
 .portfolio-header nav a{text-decoration:none}
-.language-control{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-size:13px;line-height:1.4}
+.language-control{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-size:11px;line-height:1.4}
 .language-control::before{content:"";width:1px;height:15px;margin-inline-end:3px;background:#d4d7d9}
 .language-control>[aria-current]{color:#292e32;font-weight:650}
 .language-control>.language-switch{display:inline-flex;min-height:32px;align-items:center;gap:6px;padding:3px 8px;border:1px solid #aeb5b9;border-radius:6px;background:#f7f8f8;color:#333d43;text-decoration:none}
 .language-control>.language-switch:hover{background:#eceff0;border-color:#818b91}
 .language-control>.language-switch:active{background:#e3e7e9}
 .language-control>.language-switch:focus-visible{outline:2px solid #51595f;outline-offset:2px}
-.language-swap-icon{color:#525d63;font-size:15px;line-height:1}
+.language-swap-icon{color:#525d63;font-size:13px;line-height:1}
 :lang(ko).portfolio-v9,:lang(ko).source-document{font-family:Arial,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;word-break:keep-all;overflow-wrap:break-word}
 :lang(ko).portfolio-v9 :is(h1,h2,h3,h4,p,li,figcaption,td,th,.fact-list span){word-break:keep-all;overflow-wrap:break-word}
 :lang(ko) .research-description p:not(.research-role){line-height:1.7}
