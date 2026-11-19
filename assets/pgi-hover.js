@@ -165,17 +165,11 @@
 
   let visibleFaces=[];
   function render() {
-    // Include the page's right gutter without moving the tower or the content.
-    W=Math.max(row.clientWidth,Math.floor(document.documentElement.clientWidth-row.getBoundingClientRect().left));
-    H=canvas.clientHeight;
-    if(widget.style.width!==`${W}px`)widget.style.width=`${W}px`;
-    // Anchor the original-size tower to the row, never to the moving blocks.
-    const towerX = row.clientWidth - 90;
-    if (camera.x !== towerX) {
-      camera.x = towerX;
-      widget.style.setProperty('--pgi-tower-x', `${towerX}px`);
-    }
-    camera.y=row.clientHeight-52;
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    if (!W || !H) return;
+    camera.x = hint.offsetLeft;
+    camera.y = H - 56;
     const ratio=Math.min(devicePixelRatio||1,3);
     if(canvas.width!==Math.round(W*ratio)||canvas.height!==Math.round(H*ratio)){
       canvas.width=Math.round(W*ratio);canvas.height=Math.round(H*ratio);
@@ -418,7 +412,6 @@
     if(!inView)pause();else resume();
   }).observe(canvas);
   new ResizeObserver(()=>{previousPointer=null;render()}).observe(row);
-  // The gutter changes even when the content has reached its maximum width.
   addEventListener('resize',()=>{previousPointer=null;render()});
   addEventListener('pagehide',pause);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();else resume()});

@@ -66,12 +66,13 @@
   const smooth = value => value * value * (3 - 2 * value);
 
   function geometry() {
-    const ground = height - 38;
+    const ground = height - 42;
+    const center = hint.offsetLeft;
     const code = targets.at(-1);
     return {
       ground,
-      grip: { x: width - 40, y: ground + 2 },
-      origin: { x: width - 84, y: ground - 38 },
+      grip: { x: center + 50, y: ground + 2 },
+      origin: { x: center + 6, y: ground - 38 },
       target: code ? { x: code.x + code.width / 2 + 30, y: code.y + 2 } : { x: width - 382, y: ground - 12 }
     };
   }

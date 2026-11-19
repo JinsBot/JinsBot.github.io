@@ -49,7 +49,7 @@
 .portfolio-home .carrot-lasso-hint {
   position: absolute;
   /* Match the caption under the Jenga tower. */
-  inset: auto auto 12px calc(100% - 90px);
+  inset: auto auto var(--project-card-caption-bottom) calc(100% - var(--project-card-demo-center));
   width: max-content;
   margin: 0;
   transform: translateX(-50%);
@@ -78,5 +78,6 @@
   .carrot-lasso-widget { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .carrot-lasso-focus, .carrot-lasso-hint { display: none; }
+  .carrot-lasso-focus { display: none; }
+  .carrot-lasso-hint { visibility: hidden; }
 }

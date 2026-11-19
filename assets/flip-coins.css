@@ -4,7 +4,7 @@
 }
 .flip-coins-widget {
   position: absolute;
-  inset: 0 -9px 0 auto;
+  inset: 0 calc(var(--project-card-demo-center) - 99px) 0 auto;
   width: 198px;
   pointer-events: none;
 }
@@ -80,7 +80,7 @@
 }
 .portfolio-home .flip-coins-hint {
   position: absolute;
-  bottom: 12px;
+  bottom: var(--project-card-caption-bottom);
   left: 50%;
   width: max-content;
   margin: 0;

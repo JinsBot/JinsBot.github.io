@@ -164,8 +164,20 @@
 .portfolio-home .portfolio-section>h2,.section-heading h2{font-size:24px;margin:0 0 25px}
 .portfolio-home #publications{border-top:1px solid #e7e8e7;padding-top:31px}
 .home-projects .work-thumbnail img,.project-list .work-thumbnail img{width:auto;height:auto;max-width:210px;max-height:145px;border-radius:10px;background:transparent}
-.home-projects .work-row{margin-bottom:30px}
+.home-projects > .work-row{
+ --project-card-demo-center:138px;
+ --project-card-caption-bottom:16px;
+ margin-bottom:14px;
+ padding:16px 18px;
+ border:1px solid #aab8c3;
+ border-radius:14px;
+ overflow:clip;
+}
 .home-projects .work-row:last-of-type{margin-bottom:0}
+@media(min-width:1180px){
+ .home-projects > .work-row{grid-template-columns:190px minmax(0,1fr) 236px;gap:22px}
+ .home-projects > .work-row .work-preview{width:190px}
+}
 .projects-more{font-size:14px;margin:22px 0 0}
 .projects-more a{text-decoration:underline}
 .projects-more a:hover{text-decoration:underline}

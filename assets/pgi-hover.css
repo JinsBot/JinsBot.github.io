@@ -1,4 +1,4 @@
-/* The scene spans the project row and right gutter; content stays in front. */
+/* Blocks move across the project card, behind its content. */
 .portfolio-home .pgi-hover-row { position: relative; isolation: isolate; }
 .portfolio-home .pgi-hover-row > :not(.pgi-jenga-widget) {
   position: relative;
@@ -6,22 +6,24 @@
 }
 .portfolio-home .pgi-jenga-widget {
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 100%;
+  inset: 0;
   z-index: 0;
   pointer-events: none;
 }
 .portfolio-home .pgi-hover-scene {
   display: block;
   width: 100%;
-  height: calc(100% + 24px);
-  mask-image: linear-gradient(#000 calc(100% - 18px), transparent);
+  height: 100%;
+  mask-image:
+    linear-gradient(to right, transparent, #000 18px, #000 calc(100% - 18px), transparent),
+    linear-gradient(to bottom, transparent, #000 18px, #000 calc(100% - 18px), transparent);
+  mask-composite: intersect;
   pointer-events: none;
 }
 .portfolio-home .pgi-jenga-hint {
   position: absolute;
-  bottom: 12px;
-  left: var(--pgi-tower-x);
+  bottom: var(--project-card-caption-bottom);
+  left: calc(100% - var(--project-card-demo-center));
   width: max-content;
   margin: 0;
   transform: translateX(-50%);
@@ -45,5 +47,5 @@
   .portfolio-home .pgi-jenga-widget { display: none; }
 }
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .portfolio-home .pgi-jenga-hint { display: none; }
+  .portfolio-home .pgi-jenga-hint { visibility: hidden; }
 }
