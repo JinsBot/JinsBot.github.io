@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PGI 피드백 시스템 · 김진수</title>
+  <meta name="description" content="가상 젠가 블록과의 접촉을 손끝에 전달하는 착용형 햅틱 장치. 장치 설계, 제어 로직과 시연 기록.">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/portfolio.css?v=lang4">
+  <link rel="stylesheet" href="/assets/pgi-gallery.css?v=6c3f59428af6">
+</head>
+<body class="portfolio-v9">
+  <a class="skip" href="#main">본문 바로가기</a>
+  <header class="portfolio-header"><div class="portfolio-wrap">
+    <div class="portfolio-identity">
+      <a class="portfolio-name" href="/ko/">김진수</a>
+      <div class="language-control" role="group" aria-label="페이지 언어"><span lang="ko" aria-current="true">한국어</span><a href="/projects/pgi/" class="language-switch" data-language-switch hreflang="en" lang="en" aria-label="Read this page in English"><span class="language-swap-icon" aria-hidden="true">⇄</span>English</a></div>
+    </div>
+    <nav aria-label="주 메뉴">
+      <a href="/ko/#projects">프로젝트</a><a href="/ko/#publications">논문</a><a href="/ko/#patents">특허</a><a href="/ko/#experience">연구 경험</a>
+    </nav>
+  </div></header>
+  <main id="main" class="portfolio-wrap">
+    <div class="work-heading">
+      <a class="backlink" href="/ko/projects/">← 프로젝트</a><p class="work-meta">2026년 3–6월 · 개인 프로젝트</p>
+      <h1>PGI <span>(Player-Game Interaction)</span><br>피드백 시스템</h1>
+      <p class="work-lead">줄을 당겨 접촉 패드를 움직이는 착용형 손끝 장치</p>
+      <div class="work-links"><a href="#demo">시연 영상</a><a href="#design">장치 설계</a><a href="#control">제어 구현</a><a href="#materials">코드</a></div>
+    </div>
+    <section class="work-section" id="overview">
+      <h2>왜 젠가를 택했나</h2>
+      <div class="short-copy">
+        <p>겉보기에는 같은 젠가 블록도 밀어 보면 저항이 다를 수 있습니다. 착용 장치로 그 접촉을 전달해 보기 위해, 검지 하나로 블록을 미는 동작을 시제품의 테스트 상황으로 삼았습니다.</p>
+        <p>손끝 장치를 설계하고 제작했으며, 손 추적과 Unity의 접촉 판정을 서보 구동으로 연결했습니다.</p>
+        <p class="work-meta">상명대학교 미래설계학점으로 전공학점을 인정받은 개인 프로젝트입니다.<br>경희대학교 Haptics and Virtual Reality Lab의 지원을 받아 진행했습니다.</p>
+      </div>
+    </section>
+    <section class="work-section" id="demo">
+      <h2>시제품 시연</h2>
+      <div class="recordings">
+        <figure><video controls playsinline preload="metadata" poster="/assets/pgi-demo-poster.jpg" aria-label="6월 17일 가상 젠가 시연"><source src="/assets/pgi-demo.mp4" type="video/mp4"><a href="/assets/pgi-demo.mp4">6월 17일 가상 젠가 시연 영상</a></video><figcaption>6월 17일 가상 젠가 시연. 아래에 설명한 6월 22일 제어 수정은 이 영상 이후에 이루어졌습니다.</figcaption></figure>
+        <figure><video controls playsinline preload="metadata" poster="/assets/pgi-worn-poster.jpg" aria-label="14주차 장치 착용 시연"><source src="/assets/pgi-worn.mp4" type="video/mp4"><a href="/assets/pgi-worn.mp4">14주차 장치 착용 시연 영상</a></video><figcaption>14주차 장치 착용 시연. 장치 연동을 보여주는 영상으로, 힘의 차이를 구별할 수 있는지는 평가하지 않았습니다.</figcaption></figure>
+      </div>
+    </section>
+    <section class="work-section" id="design">
+      <h2>손끝 장치의 구조와 개선 과정</h2>
+      <div class="short-copy"><p>손끝에 모터 무게가 실리지 않도록 서보 두 개를 손목에 배치했습니다. 하나는 패드의 방향을 조절하고, 다른 하나는 패드를 손끝 쪽으로 당깁니다. 당기는 줄이 느슨해지면 스프링이 피스톤을 원위치로 돌려놓습니다.</p></div>
+      <p class="section-note component-summary"><strong>구성</strong> <span class="reading-unit">MG90S 마이크로 서보 2개 · Arduino Nano Every</span><br><span class="reading-unit">3D 프린팅 마운트 · 베어링 · 스프링</span> <span class="reading-unit">· 낚싯줄 구동부 · 벨크로 고정</span></p>
+      <div class="iteration-grid" id="iterations">
+        <figure><img src="/assets/pgi-v1.webp" width="489" height="467" alt="V1 초기 조립품" loading="lazy" decoding="async"><figcaption><strong>V1 · 초기 조립</strong><span>레버, 접촉 패드, 스프링과 줄 배치.</span></figcaption></figure>
+        <figure><img src="/assets/pgi-parts.webp" width="2200" height="2200" alt="V2 패드 방향 개선 부품" loading="lazy" decoding="async"><figcaption><strong>V2 · 의도치 않은 패드 회전 억제</strong><span>사각 축을 쓰고 부품 사이 간극을 줄여 의도치 않은 회전을 억제했습니다.</span></figcaption></figure>
+        <figure><img src="/assets/pgi-final.webp" width="1400" height="1400" alt="V3 손가락 지지부가 있는 최종 시제품" loading="lazy" decoding="async"><figcaption><strong>V3 · 손가락 지지 보강</strong><span>마운트의 양옆을 늘려 패드를 당길 때 손가락을 받쳐주도록 했습니다.</span></figcaption></figure>
+      </div>
+      <details class="technical-detail" id="design-notes"><summary>설계 스케치, CAD 및 제작 기록</summary><div class="detail-content">
+        <div class="design-gallery" aria-label="PGI 설계와 제작 이미지">
+          <p class="design-gallery-note">초기 설계와 제작에 사용한 기록입니다.<br>스케치의 치수는 설계 당시 값이며, 이후 시제품은 위 사진에서 볼 수 있습니다.</p>
+          <section class="design-stage"><h3>설계 스케치</h3><div class="design-grid">
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/mechanism-sketch.webp" target="_blank" rel="noopener" data-design-image data-title="구동 줄의 경로" data-caption="스프링, 회전축, 구동 줄이 지나가는 경로를 그린 초기 스케치." aria-label="구동 줄의 경로 확대"><img src="/assets/pgi-design/mechanism-sketch-thumb.webp" width="2646" height="1692" alt="구동 줄의 경로와 스프링, 회전축을 표시한 손끝 장치 스케치" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>구동 줄의 경로</strong><span>스프링, 회전축, 구동 줄이 지나가는 경로를 그린 초기 스케치.</span></figcaption></figure>
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/mount-sketch.webp" target="_blank" rel="noopener" data-design-image data-title="마운트와 베어링 배치" data-caption="손가락 치수를 기준으로 마운트 크기와 베어링 위치를 검토했습니다." aria-label="마운트와 베어링 배치 확대"><img src="/assets/pgi-design/mount-sketch-thumb.webp" width="2517" height="2517" alt="손가락 마운트의 치수와 베어링을 표시한 단면 스케치" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>마운트와 베어링 배치</strong><span>손가락 치수를 기준으로 마운트 크기와 베어링 위치를 검토했습니다.</span></figcaption></figure>
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/lever-sketch.webp" target="_blank" rel="noopener" data-design-image data-title="레버 치수" data-caption="스프링이 들어가는 공간과 축 주변 간극을 검토한 기록." aria-label="레버 치수 확대"><img src="/assets/pgi-design/lever-sketch-thumb.webp" width="2733" height="1334" alt="스프링 공간과 수정 치수를 표시한 레버 스케치" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>레버 치수</strong><span>스프링이 들어가는 공간과 축 주변 간극을 검토한 기록.</span></figcaption></figure>
+          </div></section>
+          <section class="design-stage"><h3>부품 CAD 모델</h3><div class="design-grid">
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/mount-cad.webp" target="_blank" rel="noopener" data-design-image data-title="손가락 마운트" data-caption="고정끈을 끼우는 구멍과 레버를 지지하는 축." aria-label="손가락 마운트 확대"><img src="/assets/pgi-design/mount-cad-thumb.webp" width="377" height="486" alt="고정끈 구멍과 원통형 축이 보이는 손가락 마운트의 CAD 모델" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>손가락 마운트</strong><span>고정끈을 끼우는 구멍과 레버를 지지하는 축.</span></figcaption></figure>
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/lever-cad.webp" target="_blank" rel="noopener" data-design-image data-title="분리형 레버 하우징" data-caption="스프링과 피스톤 축이 들어가는 내부 구조." aria-label="분리형 레버 하우징 확대"><img src="/assets/pgi-design/lever-cad-thumb.webp" width="838" height="449" alt="스프링 공간과 축 구멍을 볼 수 있도록 분리한 레버 하우징 모델" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>분리형 레버 하우징</strong><span>스프링과 피스톤 축이 들어가는 내부 구조.</span></figcaption></figure>
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/pad-cad.webp" target="_blank" rel="noopener" data-design-image data-title="접촉 패드" data-caption="패드와 피스톤 축, 구동 줄 연결부의 형상." aria-label="접촉 패드 확대"><img src="/assets/pgi-design/pad-cad-thumb.webp" width="726" height="364" alt="접촉 패드와 피스톤 축, 줄 연결부가 보이는 CAD 모델" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>접촉 패드</strong><span>패드와 피스톤 축, 구동 줄 연결부의 형상.</span></figcaption></figure>
+          </div></section>
+          <section class="design-stage"><h3>초기 제작 및 조립</h3><div class="design-grid design-grid-pair">
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/printed-parts.webp" target="_blank" rel="noopener" data-design-image data-title="3D 프린팅 부품" data-caption="초기 하우징에 스프링과 베어링을 배치한 모습." aria-label="3D 프린팅 부품 확대"><img src="/assets/pgi-design/printed-parts-thumb.webp" width="2129" height="2129" alt="붉은색 3D 프린팅 하우징 두 조각과 스프링, 베어링" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>3D 프린팅 부품</strong><span>초기 하우징에 스프링과 베어링을 배치한 모습.</span></figcaption></figure>
+            <figure class="design-figure"><a class="design-image" href="/assets/pgi-design/early-assembly.webp" target="_blank" rel="noopener" data-design-image data-title="초기 조립품" data-caption="첫 번째 시제품에서 접촉 패드와 레버에 구동 줄을 연결한 모습." aria-label="초기 조립품 확대"><img src="/assets/pgi-design/early-assembly-thumb.webp" width="654" height="582" alt="구동 줄을 연결한 초기 손끝 장치의 아랫면" loading="lazy" decoding="async"><span class="design-enlarge" aria-hidden="true">확대 ↗</span></a><figcaption><strong>초기 조립품</strong><span>첫 번째 시제품에서 접촉 패드와 레버에 구동 줄을 연결한 모습.</span></figcaption></figure>
+          </div></section>
+        </div>
+        <section class="article-section"><div class="section-grid"><div class="section-body">
+          <p>손목에 고정한 두 서보 중 하나는 두 가닥의 줄로 패드를 회전시키고, 다른 하나는 패드를 손끝으로 당깁니다. 줄의 장력이 줄어들면 스프링이 피스톤을 원위치로 복귀시킵니다.</p>
+          <ul class="component-list">
+            <li><span class="number">01</span><div><h3>손끝 기구</h3><p>3D 프린팅 마운트, 회전 레버, 베어링, 스프링, 접촉 패드.</p></div></li>
+            <li><span class="number">02</span><div><h3>손목 구동부</h3><p>MG90S 마이크로 서보 2개, 낚싯줄, 벨크로 손목 고정끈.</p></div></li>
+            <li><span class="number">03</span><div><h3>제어 보드</h3><p>Arduino Nano Every가 USB 시리얼로 서보 두 개의 각도 명령을 받습니다.</p></div></li>
+          </ul>
+        </div></div></section>
+      </div></details>
+    </section>
+    <section class="work-section" id="control">
+      <h2>손동작이 패드 구동으로 이어지는 과정</h2>
+      <ol class="signal-flow"><li><strong>손 추적</strong><span>MediaPipe · 랜드마크 21개</span></li><li><strong>가상 접촉 계산</strong><span>Unity · 충격량 / 물리 스텝 시간</span></li><li><strong>패드 구동</strong><span>Arduino · 서보 각도 2개</span></li></ol>
+      <p class="section-note"><span class="reading-thought"><strong>각도 θ</strong>는 검지 끝마디가 향하는 방향과, 손끝에서 블록 중심을 향하는 방향이 이루는 각도입니다.</span><span class="reading-thought"><strong>거리 d</strong>는 손끝에서 가장 가까운 블록 표면까지의 거리입니다. 단위는 Unity 월드 좌표를 기준으로 합니다.</span></p>
+      <div class="decision-pair" style="margin-top:23px">
+        <div><h3>접촉 상태 전환 조건</h3><p>θ ≤ 90°이고 d &lt; 0.12이면 패드를 당기기 시작합니다. d &gt; 0.18이면 당김을 해제합니다. 진입과 해제에 다른 거리 기준을 두어 경계에서 상태가 빠르게 바뀌는 것을 줄였습니다.</p></div>
+        <div><h3>패드를 당기는 동안에도 방향 갱신</h3><p>패드를 당기는 동안에도 회전 명령을 계산합니다. 제어에는 시뮬레이션의 접촉 정보가 쓰이며, 실제 패드 각도나 손끝에 가해진 힘은 센서로 측정하지 않습니다.</p></div>
+      </div>
+      <details class="technical-detail"><summary>손 추적과 접촉 제어 로직, 코드 발췌</summary><div class="detail-content"><section class="article-section"><div class="section-grid"><div class="section-body">
+        <div class="pipeline" aria-label="시스템 데이터 흐름"><div><strong>웹캠 + Python</strong><span>손 랜드마크 21개</span><small>UDP</small></div><div><strong>Unity</strong><span>손 좌표 변환 · 충돌 · 제어</span><small>각도 명령 2바이트</small></div><div><strong>Arduino + 서보</strong><span>패드 회전 · 줄 당김</span></div></div>
+        <h3>손 좌표와 충돌 판정</h3>
+        <p>초기 테스트에서는 추적한 손의 위치가 가상 블록과 어긋났습니다. 공개한 구현에서는 화면에 표시되는 손끝 좌표를 충돌 판정과 피드백 계산에 공통으로 사용합니다. 손바닥이 카메라에 크게 보일수록 깊이값을 조정해, 손을 카메라 쪽으로 내밀면 가상 장면 안에서도 앞으로 움직이도록 했습니다.</p>
+        <p class="note">깊이를 추정해 화면 좌표를 매핑한 방식입니다. 보정된 3차원 손 위치를 복원하는 것은 아니며, 화면에 표시되는 랜드마크 21개는 같은 깊이값을 사용합니다.</p>
+        <h3>회전과 당김 상태</h3>
+        <p>6월 22일 코드에서는 손가락과 블록이 이루는 각도로 회전 명령을 계산합니다. 지정한 각도와 거리 조건을 충족하면 줄을 당기는 상태로 전환하며, 이때에도 회전 명령은 계속 갱신합니다. 진입과 해제에 서로 다른 거리 기준을 둬 접촉 경계에서 상태가 반복해서 바뀌는 것을 줄였습니다.</p>
+        <ul class="fact-list"><li><strong>당김 시작</strong><span>각도 ≤ 90°이며 표면까지의 거리가 0.12 Unity 단위 미만일 때.</span></li><li><strong>당김 해제</strong><span>표면까지의 거리가 0.18 Unity 단위를 초과할 때.</span></li><li><strong>당김량 계산</strong><span>Unity에서 충돌 충격량을 물리 계산 간격으로 나눠 가상 접촉력을 추정합니다. 이 값을 당김 서보의 각도 명령으로 변환합니다.</span></li></ul>
+        <details><summary>상태 전환 코드 · HapticController.cs 원문</summary><pre class="code-block"><code>switch (_state)
+        {
+            case HapticState.Rotating:
+                if (angleDeg &lt;= servo1MaxAngle &amp;&amp; dist &lt; pressStartDistance)
+                    _state = HapticState.Pressing;
+                break;
+
+            case HapticState.Pressing:
+                if (dist &gt; pressStopDistance)
+                    _state = HapticState.Rotating;
+                break;
+        }</code></pre><a class="source-link" href="/ko/source/pgi/haptic-controller.html">전체 코드 보기 →</a></details>
+        <p class="note">위 수치는 제어 코드의 설정값입니다. 패드 각도와 손끝에 가해진 힘을 센서로 읽지 않으므로, 상태 전환만으로 실제 패드가 물체 표면과 의도한 각도로 맞닿았는지는 확인할 수 없습니다.</p>
+      </div></div></section></div></details>
+    </section>
+    <section class="work-section" id="result">
+      <h2>시제품에서 확인한 점</h2>
+      <div class="short-copy"><p>손 추적, 가상 블록과의 상호작용, 서보 구동이 함께 작동하는 것을 확인했습니다. 추적 끊김, 체감 지연, 서보 떨림, 두 구동 경로 간 기계적 간섭은 남았습니다.</p><p><strong>미측정 항목</strong> 손끝에 전달된 힘, 전체 시스템 지연, 사용자가 느끼는 효과.</p></div>
+      <details class="technical-detail"><summary>담당 범위와 관찰 결과</summary><div class="detail-content"><section class="article-section"><div class="section-grid"><div class="section-body">
+        <p>세 차례 시제품을 제작하고, 손 추적에서 가상 상호작용과 서보 구동까지 이어지는 시스템을 구성했습니다. 상호작용 방식과 기구를 설계하고, 제작과 연동에 필요한 조건을 정리하며 시제품을 반복해서 테스트했습니다. 소프트웨어 일부는 AI의 도움을 받아 초안을 작성했고, 실제 하드웨어에 연결해 테스트하며 수정했습니다.</p>
+        <h3>남은 한계</h3><p>손 자세에 따라 추적이 끊길 수 있었고, 체감 지연과 서보 떨림, 두 줄 구동부 사이의 간섭이 관찰됐습니다. 손끝에 전달된 힘을 계측하거나, 사용자가 블록 저항의 차이를 구별하는지 평가하지는 않았습니다.</p>
+      </div></div></section></div></details>
+    </section>
+    <section class="work-section" id="next-steps"><details class="technical-detail"><summary>후속 연구 아이디어 · 미구현</summary><div class="detail-content"><section class="article-section"><div class="section-grid"><div class="section-body">
+      <p>시연에서는 손 추적과 가상 상호작용, 서보 구동의 연동을 확인했습니다. 지각 효과는 아직 평가하지 않았으며, 아래는 후속 작업으로 검토할 수 있는 방향입니다.</p>
+      <ul class="fact-list">
+        <li><strong>지연과 변위 측정</strong><span>손동작부터 패드 구동까지 걸리는 시간과 명령한 서보 각도에 따른 패드 변위를 측정합니다.</span></li>
+        <li><strong>접촉력 측정과 폐루프 제어</strong><span>힘 또는 압력 센서로 손끝에 전달되는 힘을 측정하고, 그 값을 패드 제어에 반영하는 방식을 검토합니다.</span></li>
+        <li><strong>기계적 간섭 완화</strong><span>패드 회전과 당김이 서로 영향을 덜 주도록 구동부를 개선합니다.</span></li>
+        <li><strong>지각 평가</strong><span>패드가 전달하는 접촉 단서로 사용자가 블록 저항을 구별할 수 있는지 평가합니다.</span></li>
+        <li><strong>촉각 단서 추가</strong><span>지속적으로 당기는 힘과 함께, 접촉 순간을 알리는 진동을 검토합니다.</span></li>
+      </ul>
+    </div></div></section></div></details></section>
+    <section class="work-section" id="materials">
+      <h2>구현 파일</h2><p class="short-copy">프로젝트에 사용한 Python 손 추적 코드, Unity C# 스크립트, Arduino 펌웨어입니다.</p>
+      <div class="work-links"><a href="/downloads/pgi-fingertip-feedback.zip">코드 다운로드</a><a href="/ko/source/pgi/haptic-controller.html">HapticController.cs</a><a href="/ko/source/pgi/tracker.html">Python 손 추적</a><a href="/ko/source/pgi/arduino.html">Arduino 스케치</a></div>
+      <details class="technical-detail"><summary>패키지 구성과 빌드 확인 범위</summary><div class="detail-content"><section class="article-section"><div class="section-grid"><div class="section-body">
+        <p>패키지에는 Python 손 추적 코드, Unity 장면과 C# 스크립트 7개, Arduino 스케치가 포함돼 있습니다. 아래 파일은 프로젝트 당시 소스이며, 위의 설명은 이 코드의 동작을 기준으로 작성했습니다.</p>
+        <div class="inline-links"><a class="text-link" href="/downloads/pgi-fingertip-feedback.zip">코드 다운로드</a></div>
+        <div class="resources"><div class="files"><a href="/ko/source/pgi/haptic-controller.html">HapticController.cs</a><a href="/ko/source/pgi/hand-visualizer.html">HandVisualizer.cs</a><a href="/ko/source/pgi/hand-physics.html">HandPhysicsCollider.cs</a><a href="/ko/source/pgi/tracker.html">mediapipe_hand.py</a><a href="/ko/source/pgi/arduino.html">PGI_JengaSimulator.ino</a></div><p class="note">공개용 패키지를 만들 때 펌웨어 빌드, C# 컴파일, 단일 프레임의 손 추적 동작을 확인했습니다. 해당 과정에서 장치 전체를 다시 연결해 시험하지는 않았습니다.</p></div>
+      </div></div></section></div></details>
+    </section>
+    <p class="related-work"><a href="/ko/projects/carrot/">앞선 프로젝트 · 당근마트 동작 컨트롤러 →</a></p>
+  </main>
+  <footer class="portfolio-footer portfolio-wrap"><span>김진수</span><div><a href="mailto:jinsoo0102@gmail.com">이메일</a><a href="/downloads/CV_JinsooKim.pdf">CV</a><a href="https://github.com/JinsBot" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.youtube.com/@jinsooBot" target="_blank" rel="noopener noreferrer">YouTube</a></div></footer>
+  <script src="/assets/site.js?v=lang1" defer></script><script src="/assets/portfolio.js?v=lang1" defer></script><script src="/assets/pgi-gallery.js?v=lang1" defer></script>
+</body>
+</html>

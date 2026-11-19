@@ -1,6 +1,7 @@
 (() => {
   const links = [...document.querySelectorAll('[data-design-image]')];
   if (!links.length || typeof HTMLDialogElement === 'undefined' || !HTMLDialogElement.prototype.showModal) return;
+  const korean = document.documentElement.lang === 'ko';
 
   const dialog = document.createElement('dialog');
   dialog.className = 'design-viewer';
@@ -9,17 +10,17 @@
   dialog.innerHTML = `
     <div class="design-viewer-top">
       <h2 id="design-viewer-title"></h2>
-      <button type="button" data-close aria-label="Close enlarged image" autofocus>Close ×</button>
+      <button type="button" data-close aria-label="${korean ? '확대한 이미지 닫기' : 'Close enlarged image'}" autofocus>${korean ? '닫기' : 'Close'} ×</button>
     </div>
     <img class="design-viewer-image" alt="">
     <p class="design-viewer-caption" id="design-viewer-caption"></p>
     <div class="design-viewer-bottom">
       <div class="design-pagination">
-        <button type="button" data-prev aria-label="Previous image">← Previous</button>
+        <button type="button" data-prev aria-label="${korean ? '이전 이미지' : 'Previous image'}">← ${korean ? '이전' : 'Previous'}</button>
         <span class="design-count" aria-live="polite" aria-atomic="true"></span>
-        <button type="button" data-next aria-label="Next image">Next →</button>
+        <button type="button" data-next aria-label="${korean ? '다음 이미지' : 'Next image'}">${korean ? '다음' : 'Next'} →</button>
       </div>
-      <a class="design-original" target="_blank" rel="noopener">Full size ↗</a>
+      <a class="design-original" target="_blank" rel="noopener">${korean ? '원본 보기' : 'Full size'} ↗</a>
     </div>`;
   document.body.append(dialog);
   const title = dialog.querySelector('h2');
@@ -40,7 +41,7 @@
     caption.textContent = link.dataset.caption;
     count.textContent = `${index + 1} / ${links.length}`;
     original.href = link.href;
-    original.setAttribute('aria-label', `Open full-size image: ${link.dataset.title}`);
+    original.setAttribute('aria-label', korean ? `${link.dataset.title} 원본 보기` : `Open full-size image: ${link.dataset.title}`);
   }
 
   links.forEach((link, position) => {

@@ -1,0 +1,49 @@
+/* The scene spans the project row and right gutter; content stays in front. */
+.portfolio-home .pgi-hover-row { position: relative; isolation: isolate; }
+.portfolio-home .pgi-hover-row > :not(.pgi-jenga-widget) {
+  position: relative;
+  z-index: 1;
+}
+.portfolio-home .pgi-jenga-widget {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.portfolio-home .pgi-hover-scene {
+  display: block;
+  width: 100%;
+  height: calc(100% + 24px);
+  mask-image: linear-gradient(#000 calc(100% - 18px), transparent);
+  pointer-events: none;
+}
+.portfolio-home .pgi-jenga-hint {
+  position: absolute;
+  bottom: 12px;
+  left: var(--pgi-tower-x);
+  width: max-content;
+  margin: 0;
+  transform: translateX(-50%);
+  color: #68737b;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  text-shadow: 0 0 3px #fff, 0 0 5px #fff;
+}
+.portfolio-home .pgi-hover-row :is(h3,.work-meta,.work-description) {
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 5px #fff;
+}
+.portfolio-home .pgi-hover-row .work-links a[data-jenga-hit] {
+  color: #584021;
+  background: #f6ecdd;
+  border-color: #a17d4d;
+  box-shadow: 0 0 0 3px #c29b634d;
+}
+@media (hover: none), (max-width: 1179px) {
+  .portfolio-home .pgi-jenga-widget { display: none; }
+}
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .portfolio-home .pgi-jenga-hint { display: none; }
+}

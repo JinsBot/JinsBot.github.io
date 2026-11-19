@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FLIP SIDE · 김진수</title>
+  <meta name="description" content="턴제 덱 빌딩 게임 FLIP SIDE에서 맡은 UI/UX 설계, 플레이어 조작, 시청각 피드백과 전시 기록.">
+  <link rel="stylesheet" href="/assets/site.css"><link rel="stylesheet" href="/assets/portfolio.css?v=lang4"><link rel="stylesheet" href="/assets/flip-side.css?v=20261118-6">
+</head>
+<body class="portfolio-v9 flip-detail">
+  <a class="skip" href="#main">본문 바로가기</a>
+  <header class="portfolio-header"><div class="portfolio-wrap">
+    <div class="portfolio-identity">
+      <a class="portfolio-name" href="/ko/">김진수</a>
+      <div class="language-control" role="group" aria-label="페이지 언어"><span lang="ko" aria-current="true">한국어</span><a href="/projects/flip-side/" class="language-switch" data-language-switch hreflang="en" lang="en" aria-label="Read this page in English"><span class="language-swap-icon" aria-hidden="true">⇄</span>English</a></div>
+    </div>
+    <nav aria-label="주 메뉴">
+      <a href="/ko/#projects">프로젝트</a><a href="/ko/#publications">논문</a><a href="/ko/#patents">특허</a><a href="/ko/#experience">연구 경험</a>
+    </nav>
+  </div></header>
+  <main id="main" class="portfolio-wrap">
+    <div class="work-heading">
+      <a class="backlink" href="/ko/projects/">← 프로젝트</a>
+      <p class="work-meta">2025년 12월–현재 · 팀 졸업 프로젝트 · 상명대학교</p>
+      <h1>FLIP SIDE</h1>
+      <p class="work-lead">양면에 무기를 장착한 코인으로 싸우는 턴제 덱 빌딩 게임</p>
+      <p class="short-copy game-description"><span class="reading-thought">코인 양면에 장착할 무기를 고르고, 코인을 격자형 필드에 던집니다.</span><span class="reading-thought">아이템과 카드를 활용해 보스의 공격에 대응하고 보스를 쓰러뜨립니다.</span></p>
+      <div class="work-links"><a href="https://www.youtube.com/watch?v=RH31K_vRW-U" target="_blank" rel="noopener noreferrer">트레일러 ↗</a><a href="https://www.youtube.com/watch?v=ZZSz2IgeDWM" target="_blank" rel="noopener noreferrer">게임 플레이 안내 ↗</a><a href="#interaction">담당 작업 ↓</a></div>
+    </div>
+    <figure class="work-hero"><div class="flip-battle-view"><img src="/assets/flip-battle-20261108.png" width="1920" height="1032" alt="필드 위 무기 코인과 실시간 보스 초상화, 아이템·카드 조작 UI가 보이는 FLIP SIDE 전투 화면" fetchpriority="high" decoding="async"></div><figcaption>팀 프로젝트 전투 화면 · 2026년 11월</figcaption></figure>
+
+    <section class="work-section" id="interaction">
+      <h2>조작과 시청각 피드백</h2>
+      <p class="contribution-intro">개발 기간 동안 맡은 작업</p>
+      <div class="flip-contributions">
+        <article id="input">
+          <h3>입력과 카메라</h3>
+          <figure><div class="contribution-visual input-overview">
+            <div class="coin-diagram" role="img" aria-label="코인을 선택하면 슬롯에서 레디 코인으로 이동합니다. 선택을 취소하면 원래 슬롯으로 돌아갑니다."><span class="coin-location">코인 슬롯</span><span class="coin-arrows"><span>선택 →</span><span>← 취소</span></span><span class="coin-location">레디 코인</span></div>
+            <p class="camera-flow">구역 선택 → 카메라 이동</p>
+          </div><figcaption>초기에 구현한 3D 조작 방식</figcaption></figure>
+          <ul class="contribution-list"><li>초기 코인 선택·취소 및 구역에 따른 카메라 제어</li><li>팀 전투 시스템의 입력 연결과 선택 상태 처리</li></ul>
+        </article>
+        <article id="uiux">
+          <h3>UI/UX 설계</h3>
+          <figure><div class="contribution-visual ui-assets">
+            <div class="frame-example"><img src="/assets/flip-ui-frame.png" width="1254" height="1254" alt="턴과 단계 표시용 원형 UI 프레임 소재" loading="lazy" decoding="async"><span>프레임</span></div>
+            <div class="cursor-examples">
+              <div><img src="/assets/flip-cursor-default.png" width="64" height="64" alt="기본 커서" loading="lazy"><span>기본</span></div>
+              <div><img src="/assets/flip-cursor-hover.png" width="64" height="64" alt="대상 위에 놓였을 때의 커서" loading="lazy"><span>마우스 올림</span></div>
+              <div><img src="/assets/flip-cursor-click.png" width="64" height="64" alt="클릭 표시" loading="lazy"><span>클릭</span></div>
+            </div>
+          </div><figcaption>UI 프레임과 조작에 따라 바뀌는 커서</figcaption></figure>
+          <ul class="contribution-list"><li>전투·상점 UI의 시각 스타일과 화면 구성 설계</li><li>커서 상태, 실시간 보스 초상화와 HUD 개선</li><li>상호작용 테스트와 오류 수정</li></ul>
+          <p class="scope-note">엔진에서 위젯을 배치하는 작업은 팀원이 맡았습니다.</p>
+        </article>
+        <article id="audio">
+          <h3>사운드와 전환 연출</h3>
+          <figure><div class="contribution-visual"><div class="boss-sequence-view"><img src="/assets/flip-boss-defeat-20261108.png" width="1920" height="1032" alt="보스가 파괴되기 직전의 전투 화면" loading="lazy" decoding="async"></div></div><figcaption>보스 사망 연출</figcaption></figure>
+          <ul class="contribution-list"><li>UI와 전투 이벤트에 효과음 연결</li><li>배경음악 재생과 장면 간 전환</li><li>보스 사망 연출 구현</li></ul>
+        </article>
+      </div>
+      <div class="flip-design-focus"><h3>설계할 때 중점을 둔 점</h3><ul><li>조작하는 곳 가까이에 정보 배치</li><li>선택과 취소 결과가 명확하게 보이도록 설계</li><li>조작마다 반응을 확인할 수 있는 피드백</li></ul></div>
+      <details class="technical-detail" id="selection-example"><summary>구현 사례 · 코인 선택과 취소</summary><div class="detail-content">
+        <div class="decision-pair">
+          <div><h3>문제</h3><p>개발 중 선택을 취소하면 화면상으로 돌아온 코인과 다음 클릭에서 선택되는 코인이 서로 다를 때가 있었습니다.</p></div>
+          <div><h3>수정</h3><p>복귀 애니메이션과 슬롯 순서를 함께 수정해 화면에 보이는 결과와 다음 입력이 일치하도록 했습니다.</p></div>
+        </div>
+        <p class="integration-note">팀원이 상호작용 인터페이스의 구조를 개편한 뒤, 준비 단계의 슬롯 클릭과 입력 연결도 함께 수정했습니다.</p>
+      </div></details>
+    </section>
+
+    <section class="work-section" id="exhibitions" aria-labelledby="exhibitions-heading">
+      <h2 id="exhibitions-heading">전시 및 시연</h2>
+      <p class="flip-photo-hint"><span class="flip-touch-hint">사진을 누르면 크게 볼 수 있습니다.</span><span class="flip-hover-hint">사진에 마우스를 올리면 확대됩니다. 클릭하면 확대 화면을 계속 볼 수 있습니다.</span></p>
+      <div class="flip-exhibitions">
+        <article class="flip-event">
+          <h3>PlayX4 <span class="flip-event-kind">종합 게임쇼</span></h3>
+          <div class="flip-event-date"><time datetime="2026-05-21">2026년 5월 21일</time>–<time datetime="2026-05-24">24일</time></div>
+          <div class="flip-event-photos">
+            <a href="/assets/flip-playx4-booth.webp"><img src="/assets/flip-playx4-booth.webp" width="900" height="1200" alt="PlayX4 상명대학교 부스의 FLIP SIDE 포스터와 시연 화면" loading="lazy" decoding="async"></a>
+            <a href="/assets/flip-playx4-demo.webp"><img src="/assets/flip-playx4-demo.webp" width="900" height="1200" alt="PlayX4에서 초기 버전의 전투 화면을 시연하는 모습" loading="lazy" decoding="async"></a>
+          </div>
+          <p>상명대학교 게임전공 부스에서 개발 초기 버전을 시연했습니다.</p>
+        </article>
+        <article class="flip-event">
+          <h3>상명대학교 게임전공 졸업전시회</h3>
+          <time class="flip-event-date" datetime="2026-11-13">2026년 11월 13일</time>
+          <div class="flip-event-photos">
+            <a href="/assets/flip-graduation-booth.webp"><img src="/assets/flip-graduation-booth.webp" width="900" height="1200" alt="게임전공 졸업전시회 현수막 아래 마련된 FLIP SIDE 시연 공간" loading="lazy" decoding="async"></a>
+            <a href="/assets/flip-graduation-demo.webp"><img src="/assets/flip-graduation-demo.webp" width="900" height="1200" alt="방문객이 노트북으로 FLIP SIDE를 플레이하는 모습" loading="lazy" decoding="async"></a>
+          </div>
+          <p>관람객이 FLIP SIDE의 최종 빌드를 직접 플레이했습니다.</p>
+        </article>
+        <article class="flip-event">
+          <h3>독일 게임산업 관계자 방문 시연</h3>
+          <time class="flip-event-date" datetime="2026-11-16">2026년 11월 16일</time>
+          <div class="flip-event-photos flip-event-post">
+            <a href="/assets/flip-german-visit-demo.webp?v=f47fdfbe96"><img src="/assets/flip-german-visit-demo.webp?v=f47fdfbe96" width="900" height="598" alt="김진수가 방문객에게 FLIP SIDE를 시연하는 모습" loading="lazy" decoding="async"></a>
+            <a href="/assets/flip-german-visit.webp?v=post" aria-label="상명대학교 인스타그램 방문 게시물 전체 보기"><img class="flip-post-screenshot" src="/assets/flip-german-visit.webp?v=post" width="1124" height="2236" alt="상명대학교 공식 계정명과 게시글 본문을 포함한 전체 캡처" loading="lazy" decoding="async"></a>
+          </div>
+          <p>상명대학교를 방문한 독일 게임산업 관계자들에게 팀 프로젝트를 시연하며, 게임 방법을 영어로 안내했습니다.</p>
+          <small>상명대학교 공식 인스타그램 게시물(@sangmyung_univ)</small>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="portfolio-footer portfolio-wrap"><span>김진수</span><div><a href="mailto:jinsoo0102@gmail.com">이메일</a><a href="/downloads/CV_JinsooKim.pdf">CV</a><a href="https://github.com/JinsBot" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.youtube.com/@jinsooBot" target="_blank" rel="noopener noreferrer">YouTube</a></div></footer>
+  <div class="flip-photo-preview" hidden aria-hidden="true"><img alt=""></div>
+  <dialog class="flip-photo-dialog" aria-label="전시 사진 확대"><button type="button" autofocus>닫기 ×</button><img alt=""></dialog>
+  <script src="/assets/site.js?v=lang1" defer></script><script src="/assets/portfolio.js?v=lang1" defer></script><script src="/assets/flip-photos.js" defer></script>
+</body>
+</html>

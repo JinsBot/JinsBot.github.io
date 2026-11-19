@@ -6,9 +6,21 @@
 .portfolio-wrap{width:min(1040px,calc(100% - 64px));margin-inline:auto}
 .portfolio-header{position:sticky;top:0;z-index:50;border-bottom:1px solid #e2e6e8;background:rgba(255,255,255,.97);backdrop-filter:blur(10px)}
 .portfolio-header>.portfolio-wrap{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:28px}
+.portfolio-identity{display:flex;align-items:center;gap:16px}
 .portfolio-name{font-size:19px;font-weight:700;color:#21343f!important;text-decoration:none}
 .portfolio-header nav{display:flex;align-items:center;gap:26px;font-size:14px}
 .portfolio-header nav a{text-decoration:none}
+.language-control{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-size:13px;line-height:1.4}
+.language-control::before{content:"";width:1px;height:15px;margin-inline-end:3px;background:#d4d7d9}
+.language-control>[aria-current]{color:#292e32;font-weight:650}
+.language-control>.language-switch{display:inline-flex;min-height:32px;align-items:center;gap:6px;padding:3px 8px;border:1px solid #aeb5b9;border-radius:6px;background:#f7f8f8;color:#333d43;text-decoration:none}
+.language-control>.language-switch:hover{background:#eceff0;border-color:#818b91}
+.language-control>.language-switch:active{background:#e3e7e9}
+.language-control>.language-switch:focus-visible{outline:2px solid #51595f;outline-offset:2px}
+.language-swap-icon{color:#525d63;font-size:15px;line-height:1}
+:lang(ko).portfolio-v9,:lang(ko).source-document{font-family:Arial,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;word-break:keep-all;overflow-wrap:break-word}
+:lang(ko).portfolio-v9 :is(h1,h2,h3,h4,p,li,figcaption,td,th,.fact-list span){word-break:keep-all;overflow-wrap:break-word}
+:lang(ko) .research-description p:not(.research-role){line-height:1.7}
 .portfolio-intro{display:grid;grid-template-columns:1fr 1.18fr;gap:64px;padding:57px 0 43px;align-items:center}
 .portfolio-intro h1{font-size:42px;letter-spacing:-.7px;margin:0 0 15px}
 .identity{font-size:14px;line-height:1.8;color:#57616d}
@@ -99,7 +111,8 @@
 .related-work{padding:0 0 32px;font-size:15px}
 @media(max-width:760px){
  .portfolio-wrap{width:calc(100% - 36px)}
- .portfolio-header>.portfolio-wrap{gap:15px;align-items:flex-start;flex-direction:column;padding:17px 0}
+ .portfolio-header>.portfolio-wrap{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 0}
+ .portfolio-identity{gap:12px}
  .portfolio-header nav{gap:22px;font-size:13px}
  .portfolio-intro{grid-template-columns:1fr;gap:24px;padding:36px 0}
  .portfolio-intro h1{font-size:36px}

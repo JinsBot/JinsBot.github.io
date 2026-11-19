@@ -1,0 +1,111 @@
+.portfolio-home .flip-coins-row {
+  position: relative;
+  isolation: isolate;
+}
+.flip-coins-widget {
+  position: absolute;
+  inset: 0 -9px 0 auto;
+  width: 198px;
+  pointer-events: none;
+}
+.flip-coins-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.flip-coins-cell {
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  pointer-events: none;
+}
+.flip-coins-cell[data-actionable] {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.flip-coins-cell[data-actionable]:hover {
+  box-shadow: inset 0 0 0 1px #b19565;
+}
+.flip-coins-cell:focus-visible {
+  outline: 2px solid #947051;
+  outline-offset: 1px;
+}
+.flip-coins-button {
+  position: absolute;
+  top: calc(50% - 38px);
+  right: 7px;
+  width: 52px;
+  height: 76px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  z-index: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+.flip-coins-lever-cutout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 104px;
+  transform: translate(-50%, -50%) scale(.69);
+  clip-path: var(--lever-cutout);
+  pointer-events: none;
+}
+.flip-coins-lever {
+  position: absolute;
+  left: -22px;
+  top: -8px;
+  width: 112px;
+  height: 1008px;
+  max-width: none;
+  transform: translateY(calc(-112px * var(--lever-frame, 0)));
+  pointer-events: none;
+}
+.flip-coins-widget[data-state="ready"] .flip-coins-button:hover .flip-coins-lever {
+  filter: brightness(1.09);
+}
+.flip-coins-button:focus-visible {
+  outline: 2px solid #947051;
+  outline-offset: 2px;
+}
+.flip-coins-widget:is([data-state="tossing"], [data-state="moving"], [data-state="won"]) .flip-coins-button {
+  cursor: default;
+}
+.portfolio-home .flip-coins-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  width: max-content;
+  margin: 0;
+  transform: translateX(-50%);
+  color: #4d5d67;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+.flip-coins-widget[data-state="ready"] .flip-coins-button:is(:hover, :focus-visible) + .flip-coins-hint {
+  color: #234a65;
+}
+.flip-coins-row .work-links a[data-flip-win="gold"] {
+  color: #65430d;
+  background: #fff2cf;
+  border-color: #a87824;
+  box-shadow: 0 0 0 3px #d2aa554d;
+}
+.flip-coins-row .work-links a[data-flip-win="silver"] {
+  color: #294657;
+  background: #e4eff6;
+  border-color: #607e93;
+  box-shadow: 0 0 0 3px #85a7c659;
+}
+@media (max-width: 1179px) {
+  .flip-coins-widget { display: none; }
+}

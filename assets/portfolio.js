@@ -1,4 +1,16 @@
 (() => {
+  const korean = document.documentElement.lang === 'ko';
+  const languageLink = document.querySelector('[data-language-switch]');
+  if (languageLink) {
+    const alternate = new URL(languageLink.href);
+    const syncLanguageLink = () => {
+      alternate.hash = location.hash;
+      languageLink.href = alternate.href;
+    };
+    syncLanguageLink();
+    addEventListener('hashchange', syncLanguageLink);
+  }
+
   const header = document.querySelector('.portfolio-header');
   if (header) {
     const updateHeaderHeight = () => {
@@ -30,6 +42,7 @@
   document.querySelectorAll('[data-copy-email]').forEach(button => {
     button.hidden = false;
     const label = button.querySelector('.copy-label');
+    const defaultLabel = label.textContent;
     const contact = button.closest('.contact-strip');
     const status = contact.querySelector('[data-copy-status]');
     const fallbackAddress = contact.querySelector('[data-copy-fallback]');
@@ -39,10 +52,10 @@
       clearTimeout(reset);
       try {
         await navigator.clipboard.writeText(button.dataset.copyEmail);
-        label.textContent = 'Copied';
-        status.textContent = 'Email address copied.';
+        label.textContent = korean ? '복사 완료' : 'Copied';
+        status.textContent = korean ? '이메일 주소를 복사했습니다.' : 'Email address copied.';
         fallbackAddress.hidden = true;
-        reset = setTimeout(() => { label.textContent = 'Email'; status.textContent = ''; }, 2400);
+        reset = setTimeout(() => { label.textContent = defaultLabel; status.textContent = ''; }, 2400);
       } catch {
         fallbackAddress.hidden = false;
         const range = document.createRange();
@@ -50,7 +63,7 @@
         const selection = window.getSelection();
         selection.removeAllRanges();
         selection.addRange(range);
-        status.textContent = 'Email address selected. Use your device’s copy command.';
+        status.textContent = korean ? '이메일 주소를 선택했습니다. 복사 명령을 사용하세요.' : 'Email address selected. Use your device’s copy command.';
       }
     });
   });
@@ -71,7 +84,9 @@
       primary.setAttribute('aria-hidden', String(showing));
       secondary.setAttribute('aria-hidden', String(!showing));
       toggle.setAttribute('aria-pressed', String(showing));
-      toggle.setAttribute('aria-label', `Show ${showing ? 'main image' : preview.dataset.secondaryLabel} for ${preview.dataset.project}`);
+      const projectLabel = preview.dataset.projectLabel || preview.dataset.project;
+      const imageLabel = showing ? (korean ? '대표 이미지' : 'main image') : preview.dataset.secondaryLabel;
+      toggle.setAttribute('aria-label', korean ? `${projectLabel} ${imageLabel} 보기` : `Show ${imageLabel} for ${projectLabel}`);
       count.textContent = showing ? '2 / 2' : '1 / 2';
     }
     toggle.hidden = false;
@@ -87,8 +102,8 @@
   });
 
   if (document.body.classList.contains('portfolio-home')) {
-    const links = [...header.querySelectorAll('nav a')];
-    const entries = links.map(link => ({link, section: document.querySelector(new URL(link.href).hash)}));
+    const links = [...header.querySelectorAll('nav a:not([data-language-switch])')];
+    const entries = links.map(link => ({link, section: document.getElementById(new URL(link.href).hash.slice(1))})).filter(entry => entry.section);
     const entryForHash = () => entries.find(entry => new URL(entry.link.href).hash === location.hash) || null;
     // Keep explicit navigation selected, even when the page ends before its
     // section can reach the top. Resume position tracking on manual scrolling.
